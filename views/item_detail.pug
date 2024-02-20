@@ -1,0 +1,16 @@
+extends layout 
+
+block content 
+    h1 #{title}
+        d1 
+            h6 #{item.category.name}
+            h2 #{item.name}
+            h3 $#{item.price}
+            h4 #{item.description}
+            h5 Add To Cart
+            h6 
+                a(href="/shop") Return to shop
+            h6 
+                a(href=item.url+"/delete") Delete Item
+            h6
+                a(href=item.url+"/edit") Edit Item

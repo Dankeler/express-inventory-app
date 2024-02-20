@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 #{title}
+  d1
+    form(method='POST')
+      div.form-group
+        label(for='categoryName') Category Name:
+        input#categoryName.form-control(type='text', name='categoryName', value=category.name, required)
+      div.form-group
+        label(for='categoryDescription') Category Description:
+        textarea#categoryDescription.form-control(name='categoryDescription', rows='4' required)= category.description
+      button.btn.btn-primary(type='submit') Save Changes
+    h6
+      a(href="/shop") Return to shop

@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1 #{title}
+  d1
+    form(method='POST')
+      div.form-group
+        label(for='itemName') Item Name:
+        input#itemName.form-control(type='text', name='itemName', value=item.name, required)
+      div.form-group
+        label(for='itemCategory') Category:
+        select#itemCategory.form-control(name='itemCategory' required)
+          each category in categories
+            option(value=category._id selected=(item.category._id.toString() === category._id.toString())) #{category.name}
+      div.form-group
+        label(for='itemPrice') Price:
+        input#itemPrice.form-control(type='number', name='itemPrice', value=item.price, step='0.01', required)
+      div.form-group
+        label(for='itemDescription') Description:
+        textarea#itemDescription.form-control(name='itemDescription', rows='4' required)= item.description
+      button.btn.btn-primary(type='submit') Save Changes
+
+    h6
+      a(href="/shop") Return to shop
+    h6
+      a(href=item.url+"/delete") Delete Item

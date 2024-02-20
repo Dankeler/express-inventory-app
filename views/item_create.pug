@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  title Create Item Form
+  h1 Create Item Form
+  form(method="post")
+    label(for="itemName") Item Name:
+    input(type="text", id="itemName", name="itemName", required)
+    br
+    label(for="itemDescription") Description:
+    textarea(id="itemDescription", name="itemDescription", rows="4", required)
+    br
+    label(for="itemPrice") Price:
+    input(type="number", id="itemPrice", name="itemPrice", step="0.01", min="0", max="9999", required)
+    br
+    label(for="itemCategory") Category:
+    select(id="itemCategory", name="itemCategory", required)
+      for category in categories
+        option(value=category.id) #{category.name}
+
+    br
+    input(type="submit", value="Create Item")

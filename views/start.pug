@@ -1,0 +1,26 @@
+// start.pug
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{title}
+  body
+    h1 Welcome to the shop page
+
+    // Render categories
+    if categories.length
+      each category in categories
+        h2
+         a(href=category.url)= category.name
+        ul
+          each item in items
+            if item.category._id.toString() === category._id.toString()
+              li
+                a(href=item.url)= item.name
+                span  - #{item.description}
+  p 
+    a(href="/shop/item/create") Add An Item
+  p 
+    a(href="/shop/category/create") Add a Category

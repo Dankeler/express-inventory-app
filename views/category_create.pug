@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    form(method="POST")
+        label(for="categoryName") Item Name:
+        input(type="text", id="categoryName", name="categoryName", required)
+        
+        label(for="categoryDescription") Description:
+        textarea(id="categoryDescription", name="categoryDescription", rows="4", required)
+        
+        label(for="categoryItems") Items:
+
+        
+        button(type="submit") Create Category
